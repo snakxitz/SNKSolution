@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNK Solution - Soluções em TI e Desenvolvimento</title>
+    <meta name="description" content="Especialista em manutenção de equipamentos, desenvolvimento web e automação de processos. Soluções personalizadas para sua empresa ou residência.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #05090F 0%, #132546 100%);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        header {
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #2D3748;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            background: linear-gradient(90deg, #0066FF 0%, #00D5FF 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00D5FF;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-align: center;
+            background: linear-gradient(90deg, #0066FF 0%, #8A2BE2 100%);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 102, 255, 0.3);
+        }
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #FFFFFF 0%, #00D5FF 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #A0AEC0;
+            max-width: 600px;
+        }
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #0066FF, #8A2BE2, #00D5FF) border-box;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0F172A 0%, #132546 100%);
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            backdrop-filter: blur(10px);
+            background: rgba(20, 30, 50, 0.7);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            animation: fadeInUp 1.2s;
+        }
+        .portfolio-item:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.47);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .portfolio-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-content {
+            padding: 20px;
+        }
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .portfolio-content p {
+            color: #A0AEC0;
+            margin-bottom: 15px;
+        }
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .tag {
+            background: rgba(0, 102, 255, 0.2);
+            color: #00D5FF;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 213, 255, 0.3);
+        }
+        /* Serviços Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #132546 0%, #05090F 100%);
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            background: rgba(20, 30, 50, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.47);
+        }
+        .service-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #00D5FF;
+        }
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            color: #A0AEC0;
+            margin-bottom: 15px;
+        }
+        .service-card span {
+            font-size: 1.2rem;
+            color: #00D5FF;
+            font-weight: bold;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #132546 0%, #05090F 100%);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: rgba(20, 30, 50, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 30px;
+            animation: fadeInUp 1.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.47);
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .testimonial-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00D5FF;
+        }
+        .testimonial-stars {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: #A0AEC0;
+            margin-bottom: 10px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #00D5FF;
+        }
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #132546 0%, #05090F 100%);
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .contact-card {
+            background: rgba(20, 30, 50, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 30px;
+            min-width: 220px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .contact-card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.47);
+        }
+        .contact-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #00D5FF;
+        }
+        .contact-card a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .contact-card a:hover {
+            color: #00D5FF;
+        }
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+            .contact-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">SNK Solution</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#testimonials">Avaliações</a></li>
+                    <li><a href="#about">Sobre mim</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <a href="#contact" class="btn">Solicitar Orçamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Soluções em <span>Tecnologia</span> e <span>Desenvolvimento</span></h1>
+                    <p>Especialista em manutenção de equipamentos, desenvolvimento web e automação de processos. Soluções personalizadas para sua empresa ou residência.</p>
+                    <div class="btn-group">
+                        <a href="https://wa.me/5542998209288" class="btn">
+                            <i class="fab fa-whatsapp"></i> Fale comigo
+                        </a>
+                        <a href="#portfolio" class="btn">
+                            <i class="fas fa-laptop-code"></i> Ver Portfólio
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+    <img src="snk_logo.png" alt="Logo SNK Solution" class="profile-img">
+</div>  
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-me" id="about" style="padding:80px 0; background:#132546;">
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;gap:40px;">
+        <div style="flex:1;min-width:280px;text-align:center;">
+            <img src="eu.jpg" alt="Foto Leandro" style="width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid #00D5FF;box-shadow:0 8px 32px rgba(31,38,135,0.37);">
+        </div>
+        <div style="flex:2;min-width:280px;">
+            <h2>Sobre Mim</h2>
+            <p style="color:#A0AEC0;font-size:1.1rem;line-height:1.7;">
+                Me chamo Leandro Snak, tenho 26 anos sou Técnico de Informática com sólida experiência em manutenção e suporte de computadores, notebooks e impressoras, oferecendo soluções rápidas e eficientes para usuários e empresas. Atuo também como Analista de Dados, com foco em Python, estatística e ferramentas de visualização, transformando informações em insights estratégicos para apoiar decisões inteligentes. Como Programador Front-End, desenvolvo interfaces modernas e responsivas utilizando HTML, CSS e JavaScript, sempre priorizando a experiência do usuário e boas práticas de usabilidade. Minha trajetória combina conhecimento técnico, análise crítica e criatividade, permitindo entregar soluções completas para seu negócio
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:40px;">Portfólio</h2>
+        <div class="portfolio-grid">
+            <!-- Card PC Gamer (imagem + imagem detalhada abaixo) -->
+            <div class="portfolio-item animated-card" style="display:flex;flex-direction:column;align-items:center;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px;width:100%;">
+                    <img src="pc_gamer.jpeg" alt="Montagem PC Gamer" class="portfolio-img" style="max-width:400px;">
+                    <img src="https://images.unsplash.com/photo-1613160717888-faa82cdb8a94?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBjJTIwZ2FtZXJ8ZW58MHx8MHx8fDA%3D" alt="Montagem PC Gamer Ilustrativa" class="portfolio-img" style="max-width:400px;">
+                </div>
+                <div class="portfolio-content" style="max-width:800px;margin-top:20px;">
+                    <h3>Montagem do PC gamer do nosso amigo KaduC Games</h3>
+                    <p>Projeto de montagem e customização de PC gamer com iluminação RGB e watercooler.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Montagem</span>
+                        <span class="tag">PC Gamer</span>
+                        <span class="tag">RGB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Dashboard (imagem + imagem detalhada abaixo) -->
+            <div class="portfolio-item animated-card" style="display:flex;flex-direction:column;align-items:center;">
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px;width:100%;">
+                    <img src="https://media.istockphoto.com/id/1453721295/pt/v%C3%ADdeo/financial-business-diagram-charts.jpg?s=640x640&k=20&c=LYqRKrds3TEsGAAEnkl92TWqE8AQTdDvesq99wKtWfs=" alt="Dashboard Inteligente" class="portfolio-img" style="max-width:400px;">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Dashboard Detalhe" class="portfolio-img" style="max-width:400px;">
+                </div>
+                <div class="portfolio-content" style="max-width:800px;margin-top:20px;">
+                    <h3>Dashboard Inteligente</h3>
+                    <p>Dashboard responsivo para análise de dados, com gráficos dinâmicos e integração com IA.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Dashboard</span>
+                        <span class="tag">IA</span>
+                        <span class="tag">Dados</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicione outros cards seguindo o mesmo padrão (imagem + imagem) -->
+        </div>
+    </div>
+</section>
+
+    <!-- Serviços Section -->
+    <section class="services" id="services" style="padding:80px 0; background:#101828;">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:40px;">Serviços</h2>
+            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+                <div class="service-card">
+                    <h3><i class="fas fa-tools"></i> Limpeza, Manutenção e Montagem</h3>
+                    <p>Computadores, notebooks e impressoras. Serviço completo para garantir desempenho e durabilidade dos seus equipamentos.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-file-excel"></i> Automação de Planilhas Excel</h3>
+                    <p>Criação de macros e automações para facilitar tarefas repetitivas e otimizar processos no seu negócio.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-chart-line"></i> Dashboards Responsivos</h3>
+                    <p>Desenvolvimento de dashboards inteligentes para coleta e análise de dados, com visual moderno e adaptável a qualquer dispositivo.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-globe"></i> Landpages Profissionais</h3>
+                    <p>Criação de páginas de apresentação para empresas e profissionais, focadas em conversão e presença digital.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-desktop"></i> Orçamento e Montagem de PC Gamer/Setup</h3>
+                    <p>Consultoria, orçamento e montagem personalizada de PCs gamers e setups completos para jogos ou trabalho.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fab fa-windows"></i> Instalação e Ativação do Windows</h3>
+                    <p>Serviço completo de instalação e ativação do Windows.</p>
+                    <span>R$ 80,00</span>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-file-word"></i> Instalação e Ativação do Office Completo</h3>
+                    <p>Instalação e ativação do pacote Office completo (Word, Excel, PowerPoint, etc).</p>
+                    <span>R$ 100,00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:40px;">Avaliações de Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://img.freepik.com/vetores-gratis/astronauta-bonito-jogando-vr-game-com-controlador-cartoon-vector-icon-ilustracao-ciencia-tecnologia_138676-13977.jpg" alt="Cliente 1">
+                        <div>
+                            <div class="testimonial-author">KaduC Games</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "Fiz um orçamento para montar um pc gamer com a Snk Solution e me surpeendi com a qualidade e custo benefício, aproveitei e já comprei, agora só esperar chegar para eles montarem kkk."
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://scontent.fxap4-1.fna.fbcdn.net/v/t39.30808-6/300389527_764348471633743_3657266444401127207_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=l7hyY6pk1N8Q7kNvwETWXal&_nc_oc=Adm4qSd4wxEv8n-xzCciDn0AeSKa02qkgyEUtEKV7WVQ0O8LjWdmklySszvzJ6dvtAxV38VGiEfdc0pG_he_BnYd&_nc_zt=23&_nc_ht=scontent.fxap4-1.fna&_nc_gid=O7Vpu12DjVuhB0IBZ64AmA&oh=00_Afb_TwtELwtovk6xRAX7LU3OyqeA_mXqLiWPspr4H9oTZA&oe=68DA1203" alt="Cliente 2">
+                        <div>
+                            <div class="testimonial-author">JFX Contabilidade e Acessoria</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "Serviço de alta qualidade e profissionalismo. Estava precisando organizar meu escritório na parte de impressoras e computadores, achei o contato da Snk Solution no instagram e chamei."
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Cliente 3">
+                        <div>
+                            <div class="testimonial-author">Carlos Gonçalves Novak</div>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        "Meu pc simplesmente parou no meio de uma meet com meu chefe
+                        pedi para meu amigo o contato de algum técnico ele me indicou
+                        a Snk Solution, e foi pa pum problema resolvido."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contacts" id="contact" style="padding:80px 0; background:#101828;">
+        <div class="container" style="text-align:center;">
+            <h2>Contatos</h2>
+            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:30px;">
+                <a href="mailto:snak.xit@gmail.com" class="btn" title="E-mail"><i class="fas fa-envelope"></i> E-mail</a>
+                <a href="https://wa.me/5542998209288" class="btn" title="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.instagram.com/snk_coding/" class="btn" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.facebook.com/TransluceMind" class="btn" title="Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+
+    <!-- Formulário (opcional) - troque SEU_FORM_ID pelo id do Formspree -->
+    <form id="contactForm" action="https://formspree.io/f/mrbyqjqw" method="POST" style="max-width:600px;margin:30px auto 0;text-align:left;">
+  <input type="hidden" name="_next" value="https://seudominio.com/obrigado.html">
+  <input type="hidden" name="_subject" value="Mensagem do site SNK Solution">
+
+  <label for="name">Nome</label>
+  <input type="text" id="name" name="name" required style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #2d3748;background:#081026;color:#fff;">
+
+  <label for="email">E-mail</label>
+  <input type="email" id="email" name="_replyto" required style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #2d3748;background:#081026;color:#fff;">
+
+  <label for="message">Mensagem</label>
+  <textarea id="message" name="message" rows="6" required style="width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #2d3748;background:#081026;color:#fff;"></textarea>
+
+  <button class="btn" type="submit" style="margin-top:10px;">Enviar mensagem</button>
+</form>
+
+<div id="formResult" style="max-width:600px;margin:12px auto 0;text-align:center;color:#fff;"></div>
+
+<script>
+  (function(){
+    const form = document.getElementById('contactForm');
+    const result = document.getElementById('formResult');
+    if(!form) return;
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      result.style.color = '#A0AEC0';
+      result.textContent = 'Enviando...';
+      const data = new FormData(form);
+
+      try{
+        const res = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if(res.ok){
+          result.style.color = 'lightgreen';
+          result.textContent = 'Mensagem enviada com sucesso.';
+          form.reset();
+          return;
+        }
+
+        if(res.status === 404){
+          result.style.color = '#ffbaba';
+          result.textContent = 'Formulário não encontrado — verifique o ID no Formspree.';
+          return;
+        }
+
+        const json = await res.json().catch(()=>null);
+        const errMsg = (json && json.error) ? json.error : ('Status: ' + res.status);
+        result.style.color = '#ffbaba';
+        result.textContent = 'Erro ao enviar: ' + errMsg;
+
+      } catch(err){
+        result.style.color = '#ffbaba';
+        result.textContent = 'Erro de rede ao enviar. Verifique a conexão.';
+        console.error(err);
+      }
+    });
+  })();
+</script>
+  </div>
+</section>
+
+    <!-- Seção de Avaliações -->
+    <section class="reviews" style="padding:80px 0; background:#132546;">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:40px;">Avaliações de Clientes</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;">
+                <div style="background:rgba(20,30,50,0.7);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(31,38,135,0.37);text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1626218174358-7769486c4b79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGMlMjBnYW1lcnxlbnwwfHwwfHx8MA%3D%3D" alt="Montagem PC Gamer" style="width:100%;max-width:220px;border-radius:15px;margin-bottom:15px;">
+                    <h3>Montagem de PC Gamer</h3>
+                    <p>"Excelente serviço! Meu PC ficou incrível, com RGB e desempenho top. Recomendo demais!"</p>
+                    <span style="color:#00D5FF;">— Lucas Andrade</span>
+                </div>
+                <div style="background:rgba(20,30,50,0.7);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(31,38,135,0.37);text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1706895040634-62055892cbbb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW1wcmVzc29yYXxlbnwwfHwwfHx8MA%3D%3D" alt="Manutenção Impressora" style="width:100%;max-width:220px;border-radius:15px;margin-bottom:15px;">
+                    <h3>Manutenção de Computador e Impressora</h3>
+                    <p>"Resolvi todos os problemas do meu computador e impressora. Atendimento rápido e eficiente."</p>
+                    <span style="color:#00D5FF;">— Ana Paula</span>
+                </div>
+                <div style="background:rgba(20,30,50,0.7);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(31,38,135,0.37);text-align:center;">
+                    <img src="https://plus.unsplash.com/premium_photo-1671461774955-7aab3ab41b90?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGxhbmlsaGF8ZW58MHx8MHx8fDA%3D" alt="Automação Planilhas" style="width:100%;max-width:220px;border-radius:15px;margin-bottom:15px;">
+                    <h3>Automatização de Planilhas</h3>
+                    <p>"Minhas planilhas agora fazem tudo automático! Economizei horas de trabalho."</p>
+                    <span style="color:#00D5FF;">— João Silva</span>
+                </div>
+                <div style="background:rgba(20,30,50,0.7);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(31,38,135,0.37);text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2l0ZXxlbnwwfHwwfHx8MA%3D%3D" alt="Dashboard Inteligente IA" style="width:100%;max-width:220px;border-radius:15px;margin-bottom:15px;">
+                    <h3>Dashboard Inteligente com IA</h3>
+                    <p>"O dashboard com inteligência artificial mudou minha análise de dados. Muito profissional!"</p>
+                    <span style="color:#00D5FF;">— Marina Torres</span>
+                </div>
+                <div style="background:rgba(20,30,50,0.7);border-radius:20px;padding:30px;box-shadow:0 8px 32px rgba(31,38,135,0.37);text-align:center;">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvcnRpZiVDMyVCM2xpb3xlbnwwfHwwfHx8MA%3D%3D" alt="Landpage Web Dentista" style="width:100%;max-width:220px;border-radius:15px;margin-bottom:15px;">
+                    <h3>Landpage Web</h3>
+                    <p>"Site moderno feito em HTML, CSS, JavaScript, React e Node. Superou minhas expectativas."</p>
+                    <span style="color:#00D5FF;">— Pedro Henrique</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px 0; text-align: center; background: rgba(10, 14, 23, 0.85);">
+        <div class="container">
+            <p style="color: #A0AEC0;">&copy; 2023 SNK Solution. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+  // Força mute em todos os vídeos da página
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('video').forEach(v => {
+      v.muted = true;
+      v.defaultMuted = true;
+      try { v.volume = 0; } catch(e){ /* alguns navegadores podem bloquear setVolume */ }
+      // impede alterações de volume durante a sessão
+      v.addEventListener('volumechange', () => {
+        if (!v.muted || v.volume > 0) {
+          v.muted = true;
+          try { v.volume = 0; } catch(e){}
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
